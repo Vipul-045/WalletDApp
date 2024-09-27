@@ -1,10 +1,16 @@
 import {React, useContext} from 'react'
 import { AuthContext } from './AuthContext'
+import axios from 'axios';
 
 
 const signup = () => {
     const {username, setUsername, email, setEmail, password, setPassword} = useContext(AuthContext);
-    
+
+    const handleSubmit = (event) =>{
+        event.preventDefault();
+        axios.post("/register", values)
+    }
+
     return (
       <div>
           <h3>Ragistration Page</h3>
@@ -14,7 +20,7 @@ const signup = () => {
           <br />
           <input type="password" placeholder="Enter Password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
           <br />
-          <button>Ragister User</button>
+          <button onClick={handleSubmit}>Ragister User</button>
       </div>
     )
   }
