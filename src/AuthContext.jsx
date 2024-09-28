@@ -10,19 +10,13 @@ export const AuthProvider = ({ children }) => {
   const [password, setPassword] = useState("");
 
   const isAuthenticated = ()=>{
-    if(email && password != null) return true;
+    if(email && password != null) return false;
     else return true;
   }
 
-  const isRegistered=()=>{
-    if(username && email && password != null) return true;
-    else return false;
-  }
-
-
   return (
     <AuthContext.Provider
-      value={{ username, setUsername, email, setEmail, password, setPassword, isAuthenticated, isRegistered }}
+      value={{ username, setUsername, email, setEmail, password, setPassword, isAuthenticated}}
     >
       {children}
     </AuthContext.Provider>

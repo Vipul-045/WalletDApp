@@ -8,7 +8,9 @@ const login = () => {
 
   const handleSubmit = (event) =>{
     event.preventDefault();
-    axios.post("/login", values)  
+    axios.post('http://localhost:8000/login', { email, password}) 
+    .then(res=> console.log("Registered Successfully!!"))
+    .catch(err => console.log(err))
 }
 
   return (
